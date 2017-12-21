@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">InstaApp</string>
+    <string name="login_message">Login to your account!</string>
+    <string name="hint_login_username">Username</string>
+    <string name="hint_login_password">Password</string>
+    <string name="login_button">Login</string>
+    <string name="register_message">Create your account!</string>
+    <string name="full_name_register_hint">Full Name</string>
+    <string name="email_register_hint">E-Mail</string>
+    <string name="password_register_hint">Password</string>
+    <string name="signup_button">Sign Up</string>
+</resources>
