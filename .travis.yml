@@ -4,4 +4,3 @@ android:
   components:
     - build-tools-26
     - android-26
-    - extra
