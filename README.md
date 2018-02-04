@@ -21,6 +21,9 @@ You can import this project to your Android Studio in few simple steps given bel
 ```
 Click File -> New -> Project From Version Control -> GitHub. Then, enter your GitHub username and password.
 ```
+If you want to install this app in your Android mobile, just click InstaApp below:
+
+* [InstaApp.apk](https://github.com/ramamergim/InstaApp/blob/master/app/src/main/res/app-release.apk) - Download for your mobile
 
 Windows Users
 

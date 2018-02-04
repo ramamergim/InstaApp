@@ -1,0 +1,6 @@
+language: android
+jdk: oraclejdk8
+android:
+  components:
+    - build-tools-26
+    - android-26
