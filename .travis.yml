@@ -1,9 +1,0 @@
-language: android
-sudo: required
-jdk: oraclejdk8
-android:
-  components:
-    - build-tools-26
-    - android-26
-script:
-- "./gradlew clean build connectedCheck -PdisablePreDex --stacktrace"
