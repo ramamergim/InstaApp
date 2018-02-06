@@ -1,68 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/login_form"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#FFFFFF"
-        android:gravity="center"
-        android:padding="40dp"
-        android:orientation="vertical">
-        <TextView
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/login_username_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login_message"
-            android:textSize="38dp"
-            android:layout_marginBottom="10dp"
-            android:textAlignment="center"
-            android:textStyle="bold"/>
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="40dp">
 
-        <EditText
-            android:id="@+id/login_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@android:color/darker_gray"
-            android:hint="@string/hint_login_username"
-            android:inputType="textPersonName"
-            android:textAlignment="center"
-            android:textColor="#cccccc"
-            android:textSize="20dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/login_message"
+                android:textSize="38dp"
+                android:layout_marginBottom="10dp"
+                android:textAlignment="center"
+                android:textStyle="bold"/>
 
-        <EditText
-            android:id="@+id/login_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@android:color/darker_gray"
-            android:hint="@string/hint_login_password"
-            android:inputType="textPassword"
-            android:textAlignment="center"
-            android:textColor="#cccccc"
-            android:textSize="20dp" />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/button_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/rounded_corner_button"
-            android:text="@string/login_button"
-            android:textSize="20dp"
-            android:textColor="#FFFFFF"/>
+                <AutoCompleteTextView
+                    android:id="@+id/login_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/hint_login_username"
+                    android:inputType="textEmailAddress"
+                    android:gravity="center"
+                    android:textSize="20dp" />
 
-        <TextView
-            android:id="@+id/sign_up_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:textColor="#cccccc"
-            android:textSize="16dp"
-            android:text="Sign Up"/>
-    </LinearLayout>
+            </android.support.design.widget.TextInputLayout>
 
-</ScrollView>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/login_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_login_password"
+                    android:imeActionId="6"
+                    android:imeActionLabel="@string/login"
+                    android:imeOptions="actionUnspecified"
+                    android:layout_marginTop="20dp"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:gravity="center"
+                    android:textSize="20dp"/>
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/button_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_corner_button"
+                android:text="@string/login"
+                android:textSize="20dp"
+                android:textColor="#FFFFFF"/>
+
+            <TextView
+                android:id="@+id/sign_up_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:textColor="#cccccc"
+                android:textSize="16dp"
+                android:text="Sign Up"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

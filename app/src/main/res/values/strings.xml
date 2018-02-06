@@ -3,10 +3,16 @@
     <string name="login_message">Login to your account!</string>
     <string name="hint_login_username">Username</string>
     <string name="hint_login_password">Password</string>
-    <string name="login_button">Login</string>
+    <string name="login">Login</string>
     <string name="register_message">Create your account!</string>
     <string name="full_name_register_hint">Full Name</string>
     <string name="email_register_hint">E-Mail</string>
+    <string name="username_register_hint">Username</string>
     <string name="password_register_hint">Password</string>
-    <string name="signup_button">Sign Up</string>
+    <string name="signup">Sign Up</string>
+
+    <string name="error_invalid_password">Password field required</string>
+    <string name="error_field_required">Username field required</string>
+
+    <string name="login_failed">Username or password was incorrect!</string>
 </resources>

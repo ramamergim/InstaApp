@@ -16,6 +16,7 @@ import java.io.IOException;
 
 public class LoginAsyncTask extends AsyncTask<String, String, String> {
     LoginCallback loginCallback;
+
     public LoginAsyncTask(LoginCallback loginCallback) {
         this.loginCallback = loginCallback;
     }
@@ -45,5 +46,10 @@ public class LoginAsyncTask extends AsyncTask<String, String, String> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onCancelled() {
+        super.onCancelled();
     }
 }

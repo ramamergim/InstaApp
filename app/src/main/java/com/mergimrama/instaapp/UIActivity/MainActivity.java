@@ -1,4 +1,4 @@
-package com.mergimrama.instaapp;
+package com.mergimrama.instaapp.UIActivity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,15 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import com.mergimrama.instaapp.UIActivity.ListAdapter;
-import com.mergimrama.instaapp.UIActivity.PostFeedActivity;
-import com.mergimrama.instaapp.callbacks.PostsCallback;
-import com.mergimrama.instaapp.model.Posts;
-import com.mergimrama.instaapp.model.User;
-
-import java.util.ArrayList;
+import com.mergimrama.instaapp.R;
 
 public class MainActivity extends AppCompatActivity {
 

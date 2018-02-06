@@ -37,7 +37,7 @@ public class RegisterAccountActivity extends AppCompatActivity implements Regist
 
         addPicture = (ImageView) findViewById(R.id.add_picture_register);
         editTextFullName = (EditText) findViewById(R.id.register_fullname);
-        editTextEmail = (EditText) findViewById(R.id.register_email);
+        editTextEmail = (EditText) findViewById(R.id.register_username);
         editTextPassword = (EditText) findViewById(R.id.register_password);
         buttonSignUp = (Button) findViewById(R.id.register_button_signup);
 

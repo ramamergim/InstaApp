@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.mergimrama.instaapp.AddPostAsyncTask;
-import com.mergimrama.instaapp.MainActivity;
 import com.mergimrama.instaapp.R;
 import com.mergimrama.instaapp.UploadImageTask;
 import com.mergimrama.instaapp.callbacks.AddPostCallback;
