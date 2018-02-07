@@ -1,30 +1,131 @@
 package com.mergimrama.instaapp.UIActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.mergimrama.instaapp.AppPreferences;
 import com.mergimrama.instaapp.R;
+import com.mergimrama.instaapp.fragments.HomeFragment;
+import com.mergimrama.instaapp.fragments.ProfileFragment;
+import com.mergimrama.instaapp.model.User;
 
 public class MainActivity extends AppCompatActivity {
 
-    ListView listView;
-    ListAdapter listAdapter;
+    /*ListView listView;
+    ListAdapter listAdapter;*/
+
+    ImageButton homeFragmenntButton;
+    ImageButton addPostFragmenntButton;
+    ImageButton profileFragmenntButton;
+
+    HomeFragment homeFragment;
+    ProfileFragment profileFragment;
+
     public static String userId;
+    public static User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView = (ListView) findViewById(R.id.list_view);
-        listAdapter = new ListAdapter(getLayoutInflater(), this);
-        listView.setAdapter(listAdapter);
-        userId = getIntent().getStringExtra("userId");
+        homeFragmenntButton = (ImageButton) findViewById(R.id.fragment_home);
+        addPostFragmenntButton = (ImageButton) findViewById(R.id.fragment_add_post);
+        profileFragmenntButton = (ImageButton) findViewById(R.id.fragment_profile);
+
+        homeFragment = new HomeFragment();
+        profileFragment = new ProfileFragment();
 
 
+        if (savedInstanceState == null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_holder, homeFragment);
+            fragmentTransaction.commit();
+            selectButton(0);
+        }
+
+        AppPreferences.init(getApplicationContext());
+        if (!AppPreferences.getUserId().equals("")) {
+
+        } else {
+            userId = AppPreferences.getUserId();
+        }
+
+        user = (User) getIntent().getSerializableExtra("userObj");
+
+//        userId = getIntent().getStringExtra("userId");
+
+        /*listView = (ListView) findViewById(R.id.list_view);
+        listAdapter = new ListAdapter(getLayoutInflater());
+        listView.setAdapter(listAdapter);*/
+
+        homeFragmenntButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (homeFragment == null) {
+                    homeFragment = new HomeFragment();
+                } else {
+                    addFragment(homeFragment);
+                    selectButton(0);
+                }
+            }
+        });
+
+        addPostFragmenntButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PostFeedActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        profileFragmenntButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (profileFragment == null) {
+                    profileFragment = new ProfileFragment();
+                } else {
+                    addFragment(profileFragment);
+                    selectButton(2);
+                }
+            }
+        });
+    }
+
+    private void addFragment(Fragment fragment) {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_holder, fragment);
+        ft.commit();
+    }
+
+    private void selectButton(int position) {
+        homeFragmenntButton.setBackgroundColor(Color.WHITE);
+        addPostFragmenntButton.setBackgroundColor(Color.WHITE);
+        profileFragmenntButton.setBackgroundColor(Color.WHITE);
+
+        switch (position) {
+            case 0:
+                homeFragmenntButton.setBackgroundColor(Color.parseColor("#666666"));
+                break;
+            case 1:
+                addPostFragmenntButton.setBackgroundColor(Color.parseColor("#666666"));
+                break;
+            case 2:
+                profileFragmenntButton.setBackgroundColor(Color.parseColor("#666666"));
+                break;
+        }
     }
 
     // create an action bar button

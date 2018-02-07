@@ -1,10 +1,6 @@
 package com.mergimrama.instaapp.UIActivity;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -88,6 +84,7 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback {
             Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             intent.putExtra("userId", user.getUserId());
+            intent.putExtra("userObj", user);
             startActivity(intent);
             finish(); // I finish this activity here because I don't want to return back to login from newsfeed
             System.out.println("user: " + user.toString());

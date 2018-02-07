@@ -5,7 +5,9 @@ package com.mergimrama.instaapp.model;
  */
 import org.json.JSONObject;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     String userId;
     String emri;
     String username;

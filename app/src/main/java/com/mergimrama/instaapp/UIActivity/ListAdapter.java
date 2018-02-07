@@ -23,13 +23,11 @@ import java.util.ArrayList;
 public class ListAdapter extends BaseAdapter implements PostsCallback {
 
     LayoutInflater inflater;
-    Context context;
     ViewHolder viewHolder;
     ArrayList<Posts> posts = new ArrayList<Posts>();
 
-    public ListAdapter(LayoutInflater inflater, Context context) {
+    public ListAdapter(LayoutInflater inflater) {
         this.inflater = inflater;
-        this.context = context;
 
         String url = "http://appsix.net/paintbook/index.php?GetPostet=&UserID=" + MainActivity.userId;
         System.out.println(url);
@@ -73,11 +71,8 @@ public class ListAdapter extends BaseAdapter implements PostsCallback {
         viewHolder.postTimeTextView.setText(createdDate);
         viewHolder.descriptionTextView.setText(description);
 
-        /*Intent contextIntent = ((Activity) context).getIntent();
-        System.out.println(MainActivity.userId);
-        viewHolder.nameTextView.setText(contextIntent.getStringExtra("name"));
-        viewHolder.surnameTextView.setText(contextIntent.getStringExtra("surname"));
-*/        viewHolder.postImageView.setOnClickListener(new View.OnClickListener() {
+
+        viewHolder.postImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 System.out.println("Clicked on post");

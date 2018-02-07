@@ -3,6 +3,8 @@ package com.mergimrama.instaapp;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.mergimrama.instaapp.model.User;
+
 /**
  * Created by Mergim on 20-Dec-17.
  */

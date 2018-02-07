@@ -41,7 +41,7 @@ public class PostFeedActivity extends AppCompatActivity implements UploadImageCa
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.post_feed);
+        setContentView(R.layout.add_post);
 
         postImageToFeed = (ImageView) findViewById(R.id.post_image_to_feed);
         buttonPostToFeed = (Button) findViewById(R.id.post_button_to_feed);
@@ -163,5 +163,11 @@ public class PostFeedActivity extends AppCompatActivity implements UploadImageCa
         } else {
             Toast.makeText(PostFeedActivity.this, "Couldn't be added", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
     }
 }
