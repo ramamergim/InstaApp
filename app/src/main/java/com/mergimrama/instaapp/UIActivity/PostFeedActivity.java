@@ -157,11 +157,11 @@ public class PostFeedActivity extends AppCompatActivity implements UploadImageCa
     @Override
     public void onAddPostResponse(AddPost addPost) {
         if (addPost.isSuccess()) {
-            Toast.makeText(PostFeedActivity.this, "Added successfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(PostFeedActivity.this, R.string.image_added_succes, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(PostFeedActivity.this, MainActivity.class);
             startActivity(intent);
         } else {
-            Toast.makeText(PostFeedActivity.this, "Couldn't be added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(PostFeedActivity.this, R.string.image_added_failure, Toast.LENGTH_SHORT).show();
         }
     }
 

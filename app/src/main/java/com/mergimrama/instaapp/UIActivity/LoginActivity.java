@@ -87,7 +87,6 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback {
             intent.putExtra("userObj", user);
             startActivity(intent);
             finish(); // I finish this activity here because I don't want to return back to login from newsfeed
-            System.out.println("user: " + user.toString());
         } else {
             boolean cancel = false;
             View focusView = null;
@@ -96,7 +95,7 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback {
             String password = getMD5EncryptedString(editTextPassword.getText().toString());
 
             // Check for a valid password, if the user entered one.
-            if (TextUtils.isEmpty(password)) {
+            if (TextUtils.isEmpty(editTextPassword.getText().toString())) {
                 editTextPassword.setError(getString(R.string.error_invalid_password));
                 focusView = editTextPassword;
                 cancel = true;

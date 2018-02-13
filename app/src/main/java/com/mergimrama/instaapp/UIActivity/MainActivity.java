@@ -111,19 +111,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void selectButton(int position) {
-        homeFragmenntButton.setBackgroundColor(Color.WHITE);
-        addPostFragmenntButton.setBackgroundColor(Color.WHITE);
-        profileFragmenntButton.setBackgroundColor(Color.WHITE);
+        homeFragmenntButton.setImageResource(R.drawable.ic_home);
+        addPostFragmenntButton.setImageResource(R.drawable.ic_add);
+        profileFragmenntButton.setImageResource(R.drawable.ic_profile);
 
         switch (position) {
             case 0:
-                homeFragmenntButton.setBackgroundColor(Color.parseColor("#666666"));
+                homeFragmenntButton.setImageResource(R.drawable.ic_home_selected);
                 break;
             case 1:
-                addPostFragmenntButton.setBackgroundColor(Color.parseColor("#666666"));
+                addPostFragmenntButton.setImageResource(R.drawable.ic_add_selected);
                 break;
             case 2:
-                profileFragmenntButton.setBackgroundColor(Color.parseColor("#666666"));
+                profileFragmenntButton.setImageResource(R.drawable.ic_profile_selected);
                 break;
         }
     }
