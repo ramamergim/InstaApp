@@ -24,7 +24,7 @@ Click File -> New -> Project From Version Control -> GitHub. Then, enter your Gi
 If you want to install this app in your Android mobile, just click InstaApp below:
 
 * [InstaApp.apk (Mediafire)](http://www.mediafire.com/file/p2lq61nh4n020bg/InstaApp.apk) - Download from Mediafire
-* [InstaApp.apk](https://github.com/ramamergim/InstaApp/blob/master/app/src/main/res/app-release.apk) - Download for your mobile
+* [InstaApp.apk](https://github.com/ramamergim/InstaApp/blob/master/app/src/main/res/InstaApp.apk) - Download for your mobile
 
 Windows Users
 
