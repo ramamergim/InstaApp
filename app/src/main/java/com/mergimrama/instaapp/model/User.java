@@ -7,25 +7,32 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
-    String userId;
-    String emri;
-    String username;
-    String status;
+public class User {
+    private String userId;
+    private String name;
+    private String username;
+    private String status;
 
     public User(JSONObject jsonObject) {
         userId = jsonObject.optString("UserID");
-        emri = jsonObject.optString("Emri");
+        name = jsonObject.optString("Emri");
         username = jsonObject.optString("Username");
         status = jsonObject.optString("status");
+    }
+
+    public User(String userId, String name, String username, String status) {
+        this.userId = userId;
+        this.name = name;
+        this.username = username;
+        this.status = status;
     }
 
     public String getUserId() {
         return userId;
     }
 
-    public String getEmri() {
-        return emri;
+    public String getName() {
+        return name;
     }
 
     public String getUsername() {
@@ -40,7 +47,7 @@ public class User implements Serializable {
     public String toString() {
         return "User{" +
                 "userId='" + userId + '\'' +
-                ", emri='" + emri + '\'' +
+                ", name='" + name + '\'' +
                 ", username='" + username + '\'' +
                 '}';
     }

@@ -44,7 +44,7 @@ public class ApiService {
     public static String postImage(String BASE_URLandRoute, String imagePath, String pershkrimi) throws IOException {
         RequestBody requestBody = new MultipartBody.Builder()
                 .setType(MultipartBody.FORM)
-                .addFormDataPart("user_id", AppPreferences.getUserId() + "")
+                .addFormDataPart("user_id", AppPreferences.getUser().getUserId())
                 .addFormDataPart("image_path", imagePath)
                 .addFormDataPart("pershkrimi", pershkrimi)
                 .build();

@@ -32,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
     HomeFragment homeFragment;
     ProfileFragment profileFragment;
-
-    public static String userId;
-    public static User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         homeFragment = new HomeFragment();
         profileFragment = new ProfileFragment();
 
-
         if (savedInstanceState == null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -57,13 +53,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         AppPreferences.init(getApplicationContext());
-        if (!AppPreferences.getUserId().equals("")) {
+        User userPreferences = AppPreferences.getUser();
+
+        if (!(userPreferences == null)) {
 
         } else {
-            userId = AppPreferences.getUserId();
+
         }
 
-        user = (User) getIntent().getSerializableExtra("userObj");
+        //user = (User) getIntent().getSerializableExtra("userObj");
 
 //        userId = getIntent().getStringExtra("userId");
 

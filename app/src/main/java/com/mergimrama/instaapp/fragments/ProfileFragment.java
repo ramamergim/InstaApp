@@ -40,9 +40,9 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        user = MainActivity.user;
+        user = AppPreferences.getUser();
 
-        fullNameTextview.setText(user.getEmri());
+        fullNameTextview.setText(user.getName());
         usernameTextview.setText(user.getUsername());
     }
 }

@@ -29,8 +29,8 @@ public class ListAdapter extends BaseAdapter implements PostsCallback {
 
     LayoutInflater inflater;
     ViewHolder viewHolder;
-    ArrayList<Posts> posts = new ArrayList<Posts>();
-    private String userId = AppPreferences.getUserId();
+    ArrayList<Posts> posts = new ArrayList<>();
+    private String userId = AppPreferences.getUser().getUserId();
     boolean isImageFitToScreen;
 
     public ListAdapter(LayoutInflater inflater) {

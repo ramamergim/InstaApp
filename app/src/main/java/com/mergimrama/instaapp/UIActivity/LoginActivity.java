@@ -26,7 +26,6 @@ import java.security.NoSuchAlgorithmException;
  */
 
 public class LoginActivity extends AppCompatActivity implements LoginCallback {
-
     private EditText editTextUsername;
     private EditText editTextPassword;
     private Button buttonLogin;
@@ -49,11 +48,6 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback {
         mProgressView = (View) findViewById(R.id.login_progress);
 
         AppPreferences.init(getApplicationContext());
-        if (!AppPreferences.getUserId().equals("")) {
-
-        } else {
-
-        }
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,11 +74,11 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback {
     @Override
     public void onLoginResponse(User user, boolean success) {
         if(success) {
-            AppPreferences.saveUserId(user.getUserId());
+            //AppPreferences.saveUserId(user.getUserId());
+            AppPreferences.saveUserDetails(user.getUserId(), user.getName(), user.getUsername(), user.getStatus());
+
             Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            intent.putExtra("userId", user.getUserId());
-            intent.putExtra("userObj", user);
             startActivity(intent);
             finish(); // I finish this activity here because I don't want to return back to login from newsfeed
         } else {
