@@ -16,14 +16,10 @@
         android:theme="@style/AppTheme">
         <activity android:name=".UIActivity.MainActivity"
             android:label="Newsfeed">
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
         </activity>
         <activity android:name=".UIActivity.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,9 +27,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".UIActivity.RegisterAccountActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity android:name=".UIActivity.PostFeedActivity"
-            android:label="Your Post" />
+            android:label="Your Post"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
     </application>
 
 </manifest>

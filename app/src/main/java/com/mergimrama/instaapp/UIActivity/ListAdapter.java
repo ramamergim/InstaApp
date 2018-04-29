@@ -1,20 +1,15 @@
 package com.mergimrama.instaapp.UIActivity;
 
-import android.content.Context;
-import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.mergimrama.instaapp.AppPreferences;
-import com.mergimrama.instaapp.PostsAsyncTask;
+import com.mergimrama.instaapp.service.PostsAsyncTask;
 import com.mergimrama.instaapp.R;
 import com.mergimrama.instaapp.callbacks.PostsCallback;
 import com.mergimrama.instaapp.model.Posts;

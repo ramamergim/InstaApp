@@ -1,4 +1,6 @@
-package com.mergimrama.instaapp.model;
+package com.mergimrama.instaapp.service;
+
+import com.mergimrama.instaapp.model.AddPost;
 
 import org.json.JSONException;
 import org.json.JSONObject;

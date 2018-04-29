@@ -11,9 +11,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.mergimrama.instaapp.AddPostAsyncTask;
+import com.mergimrama.instaapp.service.AddPostAsyncTask;
 import com.mergimrama.instaapp.R;
-import com.mergimrama.instaapp.UploadImageTask;
+import com.mergimrama.instaapp.service.UploadImageTask;
 import com.mergimrama.instaapp.callbacks.AddPostCallback;
 import com.mergimrama.instaapp.callbacks.UploadImageCallback;
 import com.mergimrama.instaapp.model.AddPost;

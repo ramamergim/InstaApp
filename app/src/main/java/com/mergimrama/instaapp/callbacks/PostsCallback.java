@@ -10,5 +10,5 @@ import java.util.ArrayList;
  */
 
 public interface PostsCallback {
-    public void onPostsResponse(ArrayList<Posts> posts, boolean success);
+    void onPostsResponse(ArrayList<Posts> posts, boolean success);
 }

@@ -1,4 +1,6 @@
-package com.mergimrama.instaapp.model;
+package com.mergimrama.instaapp.service;
+
+import com.mergimrama.instaapp.model.Posts;
 
 import org.json.JSONArray;
 import org.json.JSONException;

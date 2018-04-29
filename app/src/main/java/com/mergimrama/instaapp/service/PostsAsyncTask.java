@@ -1,9 +1,8 @@
-package com.mergimrama.instaapp;
+package com.mergimrama.instaapp.service;
 
 import android.os.AsyncTask;
 
 import com.mergimrama.instaapp.callbacks.PostsCallback;
-import com.mergimrama.instaapp.model.PostsResponse;
 
 import org.json.JSONException;
 

@@ -3,8 +3,6 @@ package com.mergimrama.instaapp.UIActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.mergimrama.instaapp.R;
-import com.mergimrama.instaapp.RegisterAsyncTask;
+import com.mergimrama.instaapp.service.RegisterAsyncTask;
 import com.mergimrama.instaapp.callbacks.RegisterCallback;
 import com.mergimrama.instaapp.model.User;
 

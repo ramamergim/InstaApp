@@ -1,8 +1,10 @@
-package com.mergimrama.instaapp;
+package com.mergimrama.instaapp.service;
 
 /**
  * Created by Mergim on 17-Dec-17.
  */
+
+import com.mergimrama.instaapp.AppPreferences;
 
 import java.io.File;
 import java.io.IOException;

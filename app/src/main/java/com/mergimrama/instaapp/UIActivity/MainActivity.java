@@ -1,11 +1,16 @@
 package com.mergimrama.instaapp.UIActivity;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,6 +25,7 @@ import com.mergimrama.instaapp.R;
 import com.mergimrama.instaapp.fragments.HomeFragment;
 import com.mergimrama.instaapp.fragments.ProfileFragment;
 import com.mergimrama.instaapp.model.User;
+import com.mergimrama.instaapp.service.PublicData;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -77,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     addFragment(homeFragment);
                     selectButton(0);
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+                    setTitle(R.string.newsfeed);
                 }
             }
         });
@@ -97,6 +106,10 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     addFragment(profileFragment);
                     selectButton(2);
+                    setTitle(R.string.my_profile);
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                    getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_exit);
                 }
             }
         });
@@ -141,6 +154,8 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.add_button) {
             Intent intent = new Intent(MainActivity.this, PostFeedActivity.class);
             startActivity(intent);
+        } else if (id == android.R.id.home) {
+            showDialogForLogout();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -148,5 +163,35 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+    }
+
+    private void showDialogForLogout() {
+        final AlertDialog.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
+        } else {
+            builder = new AlertDialog.Builder(this);
+        }
+        builder.setTitle("Logout")
+                .setMessage("Are you sure you want to logout?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        SharedPreferences userPreferences = getSharedPreferences(PublicData.SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);
+                        userPreferences.edit().clear().apply();
+                        PublicData.USER = null;
+
+                        Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(i);
+                        finish();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }

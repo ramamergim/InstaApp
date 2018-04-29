@@ -1,38 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:fillViewport="true">
 
-        <ImageView
-            android:id="@+id/post_image_to_feed"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="360dp"
-            android:layout_weight="1"
-            android:src="@drawable/post_feed" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/description_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Description"
-            android:textAlignment="center"
-            android:inputType="text"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tap + to add an image"
+                android:layout_margin="20dp"/>
 
-        <Button
-            android:id="@+id/post_button_to_feed"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_corner_button"
-            android:text="Post"
-            android:textSize="20dp"
-            android:textColor="#FFFFFF"/>
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/post_image_to_feed"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_weight="1"
+                android:src="@drawable/addimage3x"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="20dp"
+                android:background="@drawable/post_feed"/>
 
-</ScrollView>
+            <EditText
+                android:id="@+id/description_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/post_image_to_feed"
+                android:hint="Write something about this picture"
+                android:inputType="text"/>
+
+            <Button
+                android:id="@+id/post_button_to_feed"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_corner_button"
+                android:text="Post"
+                android:textSize="20dp"
+                android:layout_margin="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="#FFFFFF"/>
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</LinearLayout>

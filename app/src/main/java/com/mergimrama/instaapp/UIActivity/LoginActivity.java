@@ -12,10 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mergimrama.instaapp.AppPreferences;
-import com.mergimrama.instaapp.LoginAsyncTask;
+import com.mergimrama.instaapp.service.LoginAsyncTask;
 import com.mergimrama.instaapp.R;
 import com.mergimrama.instaapp.callbacks.LoginCallback;
 import com.mergimrama.instaapp.model.User;
+import com.mergimrama.instaapp.service.PublicData;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -49,6 +50,11 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback {
 
         AppPreferences.init(getApplicationContext());
 
+        PublicData.ReusableMethods.loadOrSaveSharedPreferences(getApplicationContext(), null, false);
+        if (PublicData.USER != null) {
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            this.finish();
+        }
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,14 +75,15 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback {
                 startActivity(intent);
             }
         });
+
     }
 
     @Override
     public void onLoginResponse(User user, boolean success) {
-        if(success) {
+        if (success) {
             //AppPreferences.saveUserId(user.getUserId());
             AppPreferences.saveUserDetails(user.getUserId(), user.getName(), user.getUsername(), user.getStatus());
-
+            PublicData.ReusableMethods.loadOrSaveSharedPreferences(getApplicationContext(), user, true);
             Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
@@ -111,7 +118,7 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback {
         }
     }
 
-    public static String getMD5EncryptedString(String encTarget){
+    public static String getMD5EncryptedString(String encTarget) {
         MessageDigest mdEnc = null;
         try {
             mdEnc = MessageDigest.getInstance("MD5");
@@ -121,8 +128,8 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback {
         } // Encryption algorithm
         mdEnc.update(encTarget.getBytes(), 0, encTarget.length());
         String md5 = new BigInteger(1, mdEnc.digest()).toString(16);
-        while ( md5.length() < 32 ) {
-            md5 = "0"+md5;
+        while (md5.length() < 32) {
+            md5 = "0" + md5;
         }
         return md5;
     }

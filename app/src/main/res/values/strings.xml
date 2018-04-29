@@ -17,4 +17,7 @@
     <string name="login_failed">Username or password was incorrect!</string>
     <string name="image_added_succes">Added successfully</string>
     <string name="image_added_failure">Couldn\'t be added</string>
+
+    <string name="my_profile">My Profile</string>
+    <string name="newsfeed">Newsfeed</string>
 </resources>
