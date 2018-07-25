@@ -14,10 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UIActivity.MainActivity"
+        <activity android:name=".activity.MainActivity"
             android:label="Newsfeed">
         </activity>
-        <activity android:name=".UIActivity.LoginActivity"
+        <activity android:name=".activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
@@ -26,10 +26,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UIActivity.RegisterAccountActivity"
+        <activity android:name=".activity.RegisterAccountActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
-        <activity android:name=".UIActivity.PostFeedActivity"
+        <activity android:name=".activity.PostFeedActivity"
             android:label="Your Post"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
     </application>

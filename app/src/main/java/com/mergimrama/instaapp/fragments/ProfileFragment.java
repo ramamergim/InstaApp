@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 import com.mergimrama.instaapp.AppPreferences;
 import com.mergimrama.instaapp.R;
-import com.mergimrama.instaapp.UIActivity.MainActivity;
-import com.mergimrama.instaapp.callbacks.LoginCallback;
 import com.mergimrama.instaapp.model.User;
 
 /**

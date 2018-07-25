@@ -1,5 +1,7 @@
-package com.mergimrama.instaapp.UIActivity;
+package com.mergimrama.instaapp.activity;
 
+import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,41 +11,45 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.mergimrama.instaapp.AppPreferences;
+import com.mergimrama.instaapp.retrofit.APIEndpoints;
+import com.mergimrama.instaapp.retrofit.RetrofitCaller;
+import com.mergimrama.instaapp.retrofit.model.PostSerializer;
 import com.mergimrama.instaapp.service.PostsAsyncTask;
 import com.mergimrama.instaapp.R;
 import com.mergimrama.instaapp.callbacks.PostsCallback;
 import com.mergimrama.instaapp.model.Posts;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Mergim on 16-Dec-17.
  */
 
-public class ListAdapter extends BaseAdapter implements PostsCallback {
+public class ListAdapter extends BaseAdapter {
 
     LayoutInflater inflater;
     ViewHolder viewHolder;
-    ArrayList<Posts> posts = new ArrayList<>();
-    private String userId = AppPreferences.getUser().getUserId();
+    private List<PostSerializer.Post> mPosts = new ArrayList<>();
     boolean isImageFitToScreen;
+    private Call<PostSerializer> mPostSerializerCall;
 
     public ListAdapter(LayoutInflater inflater) {
         this.inflater = inflater;
-
-        String url = "http://appsix.net/paintbook/index.php?GetPostet=&UserID=" + userId;
-        System.out.println(url);
-        new PostsAsyncTask(this).execute(url);
     }
 
     @Override
     public int getCount() {
-        return posts.size();
+        return mPosts.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return posts.get(position);
+        return mPosts.get(position);
     }
 
     @Override
@@ -60,14 +66,14 @@ public class ListAdapter extends BaseAdapter implements PostsCallback {
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
-        String username = posts.get(position).getUsername();
-        String createdDate = posts.get(position).getCreatedDate();
-        String photoUrl = posts.get(position).getPhotoUrl();
-        String description = posts.get(position).getPershkrimi();
+        String username = mPosts.get(position).getUsername();
+        String createdDate = mPosts.get(position).getCreatedDate();
+        String photoUrl = mPosts.get(position).getPhotoUrl();
+        String description = mPosts.get(position).getPershkrimi();
         try {
             Glide.with(view).load(photoUrl).into(viewHolder.postImageView);
         } catch (Exception e) {
-
+            Log.d("ListAdapter", "couldn't load image");
         }
         viewHolder.nameTextView.setText(username);
         viewHolder.postTimeTextView.setText(createdDate);
@@ -103,13 +109,9 @@ public class ListAdapter extends BaseAdapter implements PostsCallback {
         return view;
     }
 
-    @Override
-    public void onPostsResponse(ArrayList<Posts> posts, boolean success) {
-        this.posts = posts;
+    public void setPosts(List<PostSerializer.Post> posts) {
+        mPosts = posts;
         notifyDataSetChanged();
-        for (Posts post: posts) {
-            System.out.println(post.toString());
-        }
     }
 
     class ViewHolder {
@@ -121,12 +123,12 @@ public class ListAdapter extends BaseAdapter implements PostsCallback {
         TextView descriptionTextView;
 
         public ViewHolder(View v) {
-            profileImageView = (ImageView) v.findViewById(R.id.profile_image_feed);
-            nameTextView = (TextView) v.findViewById(R.id.name_feed_text_view);
-            surnameTextView = (TextView) v.findViewById(R.id.surname_feed_text_view);
-            postTimeTextView = (TextView) v.findViewById(R.id.time_feed_text_view);
-            postImageView = (ImageView) v.findViewById(R.id.post_image_view_feed);
-            descriptionTextView = (TextView) v.findViewById(R.id.description_text_view);
+            profileImageView = v.findViewById(R.id.profile_image_feed);
+            nameTextView = v.findViewById(R.id.name_feed_text_view);
+            surnameTextView = v.findViewById(R.id.surname_feed_text_view);
+            postTimeTextView = v.findViewById(R.id.time_feed_text_view);
+            postImageView = v.findViewById(R.id.post_image_view_feed);
+            descriptionTextView = v.findViewById(R.id.description_text_view);
         }
     }
 }

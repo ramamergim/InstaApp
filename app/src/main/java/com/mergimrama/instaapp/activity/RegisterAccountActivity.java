@@ -1,4 +1,4 @@
-package com.mergimrama.instaapp.UIActivity;
+package com.mergimrama.instaapp.activity;
 
 import android.content.Intent;
 import android.net.Uri;
