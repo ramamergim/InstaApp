@@ -11,7 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-At first, you need to have Android Studio, OKHTTP library and Glide library added to your Gradle App.   
+At first, you need to have Android Studio, then Retrofit, OKHTTP library and Glide library added to your Gradle App.   
 ```
 
 ### Installing
@@ -45,6 +45,7 @@ with description and post it to feed.
 ## Built With
 
 * [Android Studio](https://developer.android.com/studio/index.html?gclid=Cj0KCQiA9_LRBRDZARIsAAcLXjeSeZsYADtRT3rhbCdSoCtdTrsB9jD7HmLA9Gk4MR3bc1xIN8PhTpEaAp5WEALw_wcB) - Android Studio Download Web
+* [Retrofit](http://square.github.io/retrofit/) - A type-safe HTTP client for Android and Java
 * [OkHttp](http://square.github.io/okhttp/) - An HTTP client
 * [Glide](https://github.com/bumptech/glide) - Glide is a fast and efficient open source media management and 
 image loading framework for Android that wraps media decoding, memory and disk caching, 
