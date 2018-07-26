@@ -13,6 +13,7 @@ import java.io.IOException;
  * Created by Mergim on 20-Dec-17.
  */
 
+@Deprecated
 public class UploadImageTask  extends AsyncTask<File, String, String> {
 
     String url;

@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.mergimrama.instaapp.AppPreferences;
 import com.mergimrama.instaapp.retrofit.APIEndpoints;
 import com.mergimrama.instaapp.retrofit.RetrofitCaller;
+import com.mergimrama.instaapp.retrofit.model.User;
 import com.mergimrama.instaapp.retrofit.model.UserSerializer;
 import com.mergimrama.instaapp.R;
 import com.mergimrama.instaapp.service.PublicData;
@@ -126,7 +127,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     UserSerializer userSerializer = response.body();
                     if (userSerializer != null) {
-                        UserSerializer.User user = userSerializer.getUserList().get(0);
+                        User user = userSerializer.getUserList().get(0);
                         if (user.getStatus().equals("success")) {
                             AppPreferences.saveUserDetails(user.getUserId(), user.getName(), user.getUsername(), user.getStatus());
                             PublicData.ReusableMethods.loadOrSaveSharedPreferences(getApplicationContext(), user, true);

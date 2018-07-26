@@ -1,6 +1,8 @@
 package com.mergimrama.instaapp.retrofit;
 
 import com.mergimrama.instaapp.retrofit.model.PostSerializer;
+import com.mergimrama.instaapp.retrofit.model.RegisterSerializer;
+import com.mergimrama.instaapp.retrofit.model.UploadImage;
 import com.mergimrama.instaapp.retrofit.model.UserSerializer;
 
 import okhttp3.MultipartBody;
@@ -9,6 +11,7 @@ import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
@@ -17,10 +20,10 @@ public interface APIEndpoints {
     @GET("?")
     Call<UserSerializer> login(@Query("User") String user, @Query("Password") String password);
     @GET("?RegisterUser=")
-    Call<UserSerializer> register(@Query("User") String user,
-                                  @Query("password") String password,
-                                  @Query("Emri") String name,
-                                  @Query("Mbiemri") String surname);
+    Call<RegisterSerializer> register(@Query("User") String user,
+                                      @Query("password") String password,
+                                      @Query("Emri") String name,
+                                      @Query("Mbiemri") String surname);
     @GET("?ForgotPassword=")
     Call<ResponseBody> forgotPassword(@Query("User") String user);
     @GET("?GetPostet=")
@@ -31,7 +34,7 @@ public interface APIEndpoints {
     Call<ResponseBody> createPost(@Field("user_id") Integer userID,
                                   @Field("image_path") String imagePath,
                                   @Field("pershkrimi") String description);
-    @FormUrlEncoded
-    @POST("")
-    Call<ResponseBody> uploadImage(@Part MultipartBody.Part file);
+    @Multipart
+    @POST("./")
+    Call<UploadImage> uploadImage(@Part MultipartBody.Part file);
 }

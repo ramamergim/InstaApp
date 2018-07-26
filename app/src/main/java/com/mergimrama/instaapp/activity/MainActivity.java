@@ -20,7 +20,7 @@ import com.mergimrama.instaapp.AppPreferences;
 import com.mergimrama.instaapp.R;
 import com.mergimrama.instaapp.fragments.HomeFragment;
 import com.mergimrama.instaapp.fragments.ProfileFragment;
-import com.mergimrama.instaapp.model.User;
+import com.mergimrama.instaapp.retrofit.model.User;
 import com.mergimrama.instaapp.service.PublicData;
 
 public class MainActivity extends AppCompatActivity {

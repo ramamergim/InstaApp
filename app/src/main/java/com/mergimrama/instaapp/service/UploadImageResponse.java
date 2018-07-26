@@ -1,6 +1,6 @@
 package com.mergimrama.instaapp.service;
 
-import com.mergimrama.instaapp.model.UploadImage;
+import com.mergimrama.instaapp.retrofit.model.UploadImage;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,7 +21,7 @@ public class UploadImageResponse {
         success = jsonObject.optBoolean("success");
         name = jsonObject.optString("name");
         if (success) {
-            uploadImage = new UploadImage(jsonObject);
+//            uploadImage = new UploadImage(jsonObject);
         } else {
 
         }

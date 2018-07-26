@@ -30,7 +30,6 @@ public class HomeFragment extends Fragment {
 
     private Call<PostSerializer> mPostSerializerCall;
     private ListAdapter mListAdapter;
-    private String mUserId = "";
 
     @Nullable
     @Override
@@ -46,14 +45,8 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mUserId = AppPreferences.getUser().getUserId();
-        getPosts(Integer.parseInt(mUserId));
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        cancelCall(mPostSerializerCall);
+        String userId = AppPreferences.getUser().getUserId();
+        getPosts(Integer.parseInt(userId));
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.mergimrama.instaapp.activity;
 
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,21 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.mergimrama.instaapp.AppPreferences;
-import com.mergimrama.instaapp.retrofit.APIEndpoints;
-import com.mergimrama.instaapp.retrofit.RetrofitCaller;
 import com.mergimrama.instaapp.retrofit.model.PostSerializer;
-import com.mergimrama.instaapp.service.PostsAsyncTask;
 import com.mergimrama.instaapp.R;
-import com.mergimrama.instaapp.callbacks.PostsCallback;
-import com.mergimrama.instaapp.model.Posts;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by Mergim on 16-Dec-17.
@@ -32,11 +21,8 @@ import retrofit2.Response;
 
 public class ListAdapter extends BaseAdapter {
 
-    LayoutInflater inflater;
-    ViewHolder viewHolder;
+    private LayoutInflater inflater;
     private List<PostSerializer.Post> mPosts = new ArrayList<>();
-    boolean isImageFitToScreen;
-    private Call<PostSerializer> mPostSerializerCall;
 
     public ListAdapter(LayoutInflater inflater) {
         this.inflater = inflater;
@@ -59,6 +45,7 @@ public class ListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
+        ViewHolder viewHolder;
         if (view == null) {
             view = inflater.inflate(R.layout.list_view, viewGroup, false);
             viewHolder = new ViewHolder(view);
@@ -122,7 +109,7 @@ public class ListAdapter extends BaseAdapter {
         ImageView postImageView;
         TextView descriptionTextView;
 
-        public ViewHolder(View v) {
+        ViewHolder(View v) {
             profileImageView = v.findViewById(R.id.profile_image_feed);
             nameTextView = v.findViewById(R.id.name_feed_text_view);
             surnameTextView = v.findViewById(R.id.surname_feed_text_view);
