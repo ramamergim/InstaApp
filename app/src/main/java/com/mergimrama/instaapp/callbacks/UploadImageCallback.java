@@ -1,11 +1,11 @@
 package com.mergimrama.instaapp.callbacks;
 
-import com.mergimrama.instaapp.retrofit.model.UploadImage;
+import com.mergimrama.instaapp.model.UploadImage;
 
 /**
  * Created by Mergim on 20-Dec-17.
  */
-
+@Deprecated
 public interface UploadImageCallback {
     public void onUploadResponse(UploadImage uploadImage);
 }

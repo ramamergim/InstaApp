@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.mergimrama.instaapp.AppPreferences;
 import com.mergimrama.instaapp.R;
-import com.mergimrama.instaapp.retrofit.model.User;
+import com.mergimrama.instaapp.model.User;
 
 /**
  * Created by Mergim on 07-Feb-18.

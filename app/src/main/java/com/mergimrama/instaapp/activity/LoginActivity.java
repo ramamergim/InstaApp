@@ -19,8 +19,8 @@ import android.widget.Toast;
 import com.mergimrama.instaapp.AppPreferences;
 import com.mergimrama.instaapp.retrofit.APIEndpoints;
 import com.mergimrama.instaapp.retrofit.RetrofitCaller;
-import com.mergimrama.instaapp.retrofit.model.User;
-import com.mergimrama.instaapp.retrofit.model.UserSerializer;
+import com.mergimrama.instaapp.model.User;
+import com.mergimrama.instaapp.model.UserSerializer;
 import com.mergimrama.instaapp.R;
 import com.mergimrama.instaapp.service.PublicData;
 
@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.activity_login);
 
         editTextUsername = findViewById(R.id.login_username);
         editTextPassword = findViewById(R.id.login_password);

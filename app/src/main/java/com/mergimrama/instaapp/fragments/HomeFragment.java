@@ -1,5 +1,9 @@
 package com.mergimrama.instaapp.fragments;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,7 +18,7 @@ import com.mergimrama.instaapp.R;
 import com.mergimrama.instaapp.activity.ListAdapter;
 import com.mergimrama.instaapp.retrofit.APIEndpoints;
 import com.mergimrama.instaapp.retrofit.RetrofitCaller;
-import com.mergimrama.instaapp.retrofit.model.PostSerializer;
+import com.mergimrama.instaapp.model.PostSerializer;
 
 import java.util.List;
 
@@ -30,15 +34,18 @@ public class HomeFragment extends Fragment {
 
     private Call<PostSerializer> mPostSerializerCall;
     private ListAdapter mListAdapter;
+    private View mProgressView;
+    private ListView mListView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.home_fragment, container, false);
 
-        ListView listView = rootView.findViewById(R.id.list_view);
+        mListView = rootView.findViewById(R.id.list_view);
+        mProgressView = rootView.findViewById(R.id.progress_bar);
         mListAdapter = new ListAdapter(getLayoutInflater());
-        listView.setAdapter(mListAdapter);
+        mListView.setAdapter(mListAdapter);
         return rootView;
     }
 
@@ -56,6 +63,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void getPosts(Integer userId) {
+        showProgress(true);
         mPostSerializerCall = RetrofitCaller.call(APIEndpoints.class).getPosts(userId);
         mPostSerializerCall.enqueue(new Callback<PostSerializer>() {
             @Override
@@ -65,13 +73,14 @@ public class HomeFragment extends Fragment {
                     if (postSerializer != null) {
                         List<PostSerializer.Post> posts = postSerializer.getPostList();
                         mListAdapter.setPosts(posts);
+                        showProgress(false);
                     }
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<PostSerializer> call, @NonNull Throwable t) {
-
+                showProgress(false);
             }
         });
     }
@@ -80,5 +89,28 @@ public class HomeFragment extends Fragment {
         if (call != null && call.isExecuted()) {
             call.cancel();
         }
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+    private void showProgress(final boolean show) {
+        int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+
+        mListView.setVisibility(show ? View.GONE : View.VISIBLE);
+        mListView.animate().setDuration(shortAnimTime).alpha(
+                show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                mListView.setVisibility(show ? View.GONE : View.VISIBLE);
+            }
+        });
+
+        mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+        mProgressView.animate().setDuration(shortAnimTime).alpha(
+                show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            }
+        });
     }
 }

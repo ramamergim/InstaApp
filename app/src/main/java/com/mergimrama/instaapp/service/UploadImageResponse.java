@@ -1,6 +1,6 @@
 package com.mergimrama.instaapp.service;
 
-import com.mergimrama.instaapp.retrofit.model.UploadImage;
+import com.mergimrama.instaapp.model.UploadImage;
 
 import org.json.JSONException;
 import org.json.JSONObject;

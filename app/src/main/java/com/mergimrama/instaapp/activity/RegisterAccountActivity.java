@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.mergimrama.instaapp.R;
 import com.mergimrama.instaapp.retrofit.APIEndpoints;
 import com.mergimrama.instaapp.retrofit.RetrofitCaller;
-import com.mergimrama.instaapp.retrofit.model.RegisterSerializer;
+import com.mergimrama.instaapp.model.RegisterSerializer;
 
 import retrofit2.Call;
 import retrofit2.Callback;

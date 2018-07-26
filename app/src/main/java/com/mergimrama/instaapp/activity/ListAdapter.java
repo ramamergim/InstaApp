@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.mergimrama.instaapp.retrofit.model.PostSerializer;
+import com.mergimrama.instaapp.model.PostSerializer;
 import com.mergimrama.instaapp.R;
 
 import java.util.ArrayList;

@@ -20,7 +20,7 @@ import com.mergimrama.instaapp.AppPreferences;
 import com.mergimrama.instaapp.R;
 import com.mergimrama.instaapp.fragments.HomeFragment;
 import com.mergimrama.instaapp.fragments.ProfileFragment;
-import com.mergimrama.instaapp.retrofit.model.User;
+import com.mergimrama.instaapp.model.User;
 import com.mergimrama.instaapp.service.PublicData;
 
 public class MainActivity extends AppCompatActivity {
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         addPostFragmenntButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, PostFeedActivity.class);
+                Intent intent = new Intent(MainActivity.this, PostActivity.class);
                 startActivity(intent);
             }
         });
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.add_button) {
-            Intent intent = new Intent(MainActivity.this, PostFeedActivity.class);
+            Intent intent = new Intent(MainActivity.this, PostActivity.class);
             startActivity(intent);
         } else if (id == android.R.id.home) {
             showDialogForLogout();

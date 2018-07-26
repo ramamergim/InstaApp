@@ -31,7 +31,7 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden|adjustResize"
             android:screenOrientation="portrait"/>
-        <activity android:name=".activity.PostFeedActivity"
+        <activity android:name=".activity.PostActivity"
             android:label="Your Post"
             android:windowSoftInputMode="stateHidden|adjustResize"
             android:screenOrientation="portrait"/>

@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.mergimrama.instaapp.retrofit.model.User;
+import com.mergimrama.instaapp.model.User;
 
 
 public class PublicData {
