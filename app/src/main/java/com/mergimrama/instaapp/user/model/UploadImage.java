@@ -1,4 +1,4 @@
-package com.mergimrama.instaapp.model;
+package com.mergimrama.instaapp.user.model;
 
 import com.google.gson.annotations.SerializedName;
 

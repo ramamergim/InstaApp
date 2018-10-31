@@ -1,4 +1,4 @@
-package com.mergimrama.instaapp.activity;
+package com.mergimrama.instaapp.main.activities;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -18,10 +18,12 @@ import android.widget.ImageButton;
 
 import com.mergimrama.instaapp.AppPreferences;
 import com.mergimrama.instaapp.R;
-import com.mergimrama.instaapp.fragments.HomeFragment;
-import com.mergimrama.instaapp.fragments.ProfileFragment;
-import com.mergimrama.instaapp.model.User;
-import com.mergimrama.instaapp.service.PublicData;
+import com.mergimrama.instaapp.user.activities.PostActivity;
+import com.mergimrama.instaapp.main.fragments.HomeFragment;
+import com.mergimrama.instaapp.main.fragments.ProfileFragment;
+import com.mergimrama.instaapp.login.LoginActivity;
+import com.mergimrama.instaapp.user.model.User;
+import com.mergimrama.instaapp.utils.CommonUtils;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
 
     HomeFragment homeFragment;
     ProfileFragment profileFragment;
+
+    public static Intent newIntent(Context packageContext) {
+        Intent intent = new Intent(packageContext, MainActivity.class);
+        return intent;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -172,9 +180,9 @@ public class MainActivity extends AppCompatActivity {
                 .setMessage("Are you sure you want to logout?")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        SharedPreferences userPreferences = getSharedPreferences(PublicData.SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);
+                        SharedPreferences userPreferences = getSharedPreferences(CommonUtils.SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);
                         userPreferences.edit().clear().apply();
-                        PublicData.USER = null;
+                        CommonUtils.USER = null;
 
                         Intent i = new Intent(getApplicationContext(), LoginActivity.class);
                         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);

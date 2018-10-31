@@ -1,4 +1,4 @@
-package com.mergimrama.instaapp.activity;
+package com.mergimrama.instaapp.user.activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -18,10 +18,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.mergimrama.instaapp.AppPreferences;
+import com.mergimrama.instaapp.main.activities.MainActivity;
 import com.mergimrama.instaapp.retrofit.APIEndpoints;
 import com.mergimrama.instaapp.retrofit.RetrofitCaller;
 import com.mergimrama.instaapp.R;
-import com.mergimrama.instaapp.model.UploadImage;
+import com.mergimrama.instaapp.user.model.UploadImage;
 
 import java.io.File;
 import java.io.FileNotFoundException;

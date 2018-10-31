@@ -1,9 +1,9 @@
 package com.mergimrama.instaapp.retrofit;
 
-import com.mergimrama.instaapp.model.PostSerializer;
-import com.mergimrama.instaapp.model.RegisterSerializer;
-import com.mergimrama.instaapp.model.UploadImage;
-import com.mergimrama.instaapp.model.UserSerializer;
+import com.mergimrama.instaapp.main.model.PostSerializer;
+import com.mergimrama.instaapp.user.model.RegisterSerializer;
+import com.mergimrama.instaapp.user.model.UploadImage;
+import com.mergimrama.instaapp.main.model.UserSerializer;
 
 import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;

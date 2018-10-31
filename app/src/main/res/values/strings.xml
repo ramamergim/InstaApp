@@ -28,4 +28,6 @@
     <string name="couldnt_upload">Couldn\'t upload image</string>
     <string name="couldnt_get_image">Couldn\'t get image</string>
     <string name="add_image_first">Add an image first by tapping on +</string>
+    <string name="request_not_successful">Request not successful!</string>
+    <string name="something_went_wrong">Something went wrong!</string>
 </resources>

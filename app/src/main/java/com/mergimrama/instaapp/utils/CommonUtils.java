@@ -1,16 +1,16 @@
-package com.mergimrama.instaapp.service;
+package com.mergimrama.instaapp.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.mergimrama.instaapp.model.User;
+import com.mergimrama.instaapp.user.model.User;
 
 
-public class PublicData {
+public class CommonUtils {
 
-    private static final String TAG = PublicData.class.getSimpleName();
+    private static final String TAG = CommonUtils.class.getSimpleName();
     public static String SHARED_PREFERENCES_KEY = "INSTAAPP1551";
 
     public static User USER;
@@ -19,7 +19,7 @@ public class PublicData {
         public static void loadOrSaveSharedPreferences(Context context, User obj, boolean save) {
             String userObj = new Gson().toJson(obj);
             SharedPreferences sharedPreferences = context
-                    .getSharedPreferences(PublicData.SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);
+                    .getSharedPreferences(CommonUtils.SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE);
             try {
                 if (save) {
                     SharedPreferences.Editor editPref = sharedPreferences.edit();

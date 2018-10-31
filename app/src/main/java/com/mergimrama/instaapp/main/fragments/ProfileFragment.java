@@ -1,4 +1,4 @@
-package com.mergimrama.instaapp.fragments;
+package com.mergimrama.instaapp.main.fragments;
 
 
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.mergimrama.instaapp.AppPreferences;
 import com.mergimrama.instaapp.R;
-import com.mergimrama.instaapp.model.User;
+import com.mergimrama.instaapp.user.model.User;
 
 /**
  * Created by Mergim on 07-Feb-18.

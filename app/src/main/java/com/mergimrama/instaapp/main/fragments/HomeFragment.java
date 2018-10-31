@@ -1,4 +1,4 @@
-package com.mergimrama.instaapp.fragments;
+package com.mergimrama.instaapp.main.fragments;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -15,10 +15,10 @@ import android.widget.ListView;
 
 import com.mergimrama.instaapp.AppPreferences;
 import com.mergimrama.instaapp.R;
-import com.mergimrama.instaapp.activity.ListAdapter;
+import com.mergimrama.instaapp.main.adapters.ListAdapter;
 import com.mergimrama.instaapp.retrofit.APIEndpoints;
 import com.mergimrama.instaapp.retrofit.RetrofitCaller;
-import com.mergimrama.instaapp.model.PostSerializer;
+import com.mergimrama.instaapp.main.model.PostSerializer;
 
 import java.util.List;
 

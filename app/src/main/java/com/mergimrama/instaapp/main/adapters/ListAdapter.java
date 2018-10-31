@@ -1,4 +1,4 @@
-package com.mergimrama.instaapp.activity;
+package com.mergimrama.instaapp.main.adapters;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.mergimrama.instaapp.model.PostSerializer;
+import com.mergimrama.instaapp.main.model.PostSerializer;
 import com.mergimrama.instaapp.R;
 
 import java.util.ArrayList;

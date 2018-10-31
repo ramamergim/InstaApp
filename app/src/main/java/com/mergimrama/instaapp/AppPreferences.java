@@ -3,7 +3,7 @@ package com.mergimrama.instaapp;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.mergimrama.instaapp.model.User;
+import com.mergimrama.instaapp.user.model.User;
 
 /**
  * Created by Mergim on 20-Dec-17.
@@ -28,10 +28,10 @@ public class AppPreferences {
     }*/
 
     public static void saveUserDetails (String userId, String name, String username, String status) {
-        prefs.edit().putString(USER_ID, userId).commit();
-        prefs.edit().putString(NAME, name).commit();
-        prefs.edit().putString(USERNAME, username).commit();
-        prefs.edit().putString(STATUS, status).commit();
+        prefs.edit().putString(USER_ID, userId).apply();
+        prefs.edit().putString(NAME, name).apply();
+        prefs.edit().putString(USERNAME, username).apply();
+        prefs.edit().putString(STATUS, status).apply();
     }
 
     /*public static String getUserId() {

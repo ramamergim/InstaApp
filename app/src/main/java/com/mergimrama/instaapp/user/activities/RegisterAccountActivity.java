@@ -1,4 +1,4 @@
-package com.mergimrama.instaapp.activity;
+package com.mergimrama.instaapp.user.activities;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -14,9 +14,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.mergimrama.instaapp.R;
+import com.mergimrama.instaapp.login.LoginActivity;
 import com.mergimrama.instaapp.retrofit.APIEndpoints;
 import com.mergimrama.instaapp.retrofit.RetrofitCaller;
-import com.mergimrama.instaapp.model.RegisterSerializer;
+import com.mergimrama.instaapp.user.model.RegisterSerializer;
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -1,4 +1,4 @@
-package com.mergimrama.instaapp.activity;
+package com.mergimrama.instaapp.login;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -17,12 +17,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mergimrama.instaapp.AppPreferences;
+import com.mergimrama.instaapp.main.activities.MainActivity;
+import com.mergimrama.instaapp.user.activities.RegisterAccountActivity;
 import com.mergimrama.instaapp.retrofit.APIEndpoints;
 import com.mergimrama.instaapp.retrofit.RetrofitCaller;
-import com.mergimrama.instaapp.model.User;
-import com.mergimrama.instaapp.model.UserSerializer;
+import com.mergimrama.instaapp.user.model.User;
+import com.mergimrama.instaapp.main.model.UserSerializer;
 import com.mergimrama.instaapp.R;
-import com.mergimrama.instaapp.service.PublicData;
+import com.mergimrama.instaapp.utils.CommonUtils;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -58,8 +60,8 @@ public class LoginActivity extends AppCompatActivity {
 
         AppPreferences.init(getApplicationContext());
 
-        PublicData.ReusableMethods.loadOrSaveSharedPreferences(getApplicationContext(), null, false);
-        if (PublicData.USER != null) {
+        CommonUtils.ReusableMethods.loadOrSaveSharedPreferences(getApplicationContext(), null, false);
+        if (CommonUtils.USER != null) {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             this.finish();
         }
@@ -130,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
                         User user = userSerializer.getUserList().get(0);
                         if (user.getStatus().equals("success")) {
                             AppPreferences.saveUserDetails(user.getUserId(), user.getName(), user.getUsername(), user.getStatus());
-                            PublicData.ReusableMethods.loadOrSaveSharedPreferences(getApplicationContext(), user, true);
+                            CommonUtils.ReusableMethods.loadOrSaveSharedPreferences(getApplicationContext(), user, true);
                             Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
